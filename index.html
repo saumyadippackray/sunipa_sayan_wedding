@@ -80,24 +80,42 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.5);
         }
+
+        /* Prevent scrolling while overlay is active */
+        body.no-scroll {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="text-maroon-900 antialiased overflow-x-hidden relative">
+<body class="text-maroon-900 antialiased overflow-x-hidden relative no-scroll">
+
+    <!-- Welcome Overlay -->
+    <div id="welcome-overlay" class="fixed inset-0 bg-maroon-900 bg-mandala-pattern z-[100] flex flex-col items-center justify-center text-white transition-opacity duration-1000 ease-in-out">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-maroon-900/90 pointer-events-none"></div>
+        <div class="relative z-10 text-center flex flex-col items-center">
+            <div class="mb-6 flex justify-center">
+                <img src="C:\Users\saumy\Downloads\—Pngtree—shubho bibaho bangla typography bengali_7430164.png" alt="Wedding Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-lg">
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gold-400">সুনিপা ও সায়ন</h2>
+            <p class="text-lg md:text-xl mb-10 text-gray-200">আমাদের বিবাহ বাসরে আপনাকে স্বাগত</p>
+            <button id="enter-btn" class="bg-gold-600 text-maroon-900 font-bold text-xl px-10 py-4 rounded-full hover:bg-gold-400 transition-colors shadow-lg transform hover:scale-105 duration-300 animate-bounce">
+                আমন্ত্রণ পত্র খুলুন
+            </button>
+        </div>
+    </div>
 
     <!-- Sanai Sound Audio & Toggle Button -->
     <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-maroon-800 text-gold-400 p-4 rounded-full shadow-2xl border-2 border-gold-600 hover:bg-maroon-900 transition-transform transform hover:scale-110" title="Play/Pause Sanai Music">
-        <!-- Default Paused Icon (Will update via JS if autoplay succeeds) -->
         <svg id="music-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
             <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.28l8-1.6v5.434A4.369 4.369 0 0015 11c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/>
         </svg>
     </button>
-    <audio id="sanai-audio" loop autoplay>
-        <!-- Place your actual sanai audio file link here -->
-        <source src="sanai.mp3" type="audio/mpeg">
+    <audio id="sanai-audio" loop>
+        <source src="sunipasong.mpeg" type="audio/mpeg">
     </audio>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent" id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -133,9 +151,7 @@
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in-up">
             
             <div class="mb-6 flex justify-center">
-                <!-- Replaced SVG Motif with PNG Image -->
-                <!-- Change 'your-logo.png' to the actual name/path of your image file -->
-                <img src="—Pngtree—shubho bibaho bangla typography bengali_7430164.png" alt="Wedding Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-lg">
+                <img src="C:\Users\saumy\Downloads\—Pngtree—shubho bibaho bangla typography bengali_7430164.png" alt="Wedding Logo" class="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-lg">
             </div>
             
             <h3 class="text-gold-400 text-xl md:text-2xl mb-4 tracking-widest uppercase font-english">With joyous hearts</h3>
@@ -157,7 +173,7 @@
             </div>
             
             <div class="mt-8">
-                <p class="text-white text-xl md:text-2xl mb-8">আগামী ২২শে জানুয়ারি, ২০২৭</p>
+                <p class="text-white text-xl md:text-2xl mb-8">আগামী ২১শে নভেম্বর, ২০২৬</p>
                 <a href="#events" class="inline-block bg-gold-600 text-maroon-900 font-bold text-lg px-8 py-3 rounded-full hover:bg-gold-400 transition-colors shadow-lg transform hover:scale-105 duration-300">
                     বিস্তারিত জানুন
                 </a>
@@ -210,49 +226,49 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Event 1: Gaye Holud (Clickable) -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Salt+Lake,+Kolkata" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300">
+                <!-- Event 1: Gaye Holud -->
+                <a href="https://maps.app.goo.gl/AS4xTKTbAUajBYRt6" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300">
                     <div class="w-16 h-16 mx-auto bg-maroon-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-gold-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-maroon-800 mb-2">গায়ে হলুদ</h3>
                     <p class="text-sm text-gray-500 uppercase tracking-widest font-english mb-4">Gaye Holud</p>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">২১শে জানুয়ারি, ২০২৭</p>
-                    <p class="text-gold-600 font-bold text-xl mb-4">সকাল ১০:০০ টা</p>
-                    <p class="text-gray-600">কনের বাসভবন, সল্টলেক<br/>কলকাতা, পশ্চিমবঙ্গ</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">২১শে নভেম্বর, ২০২৬</p>
+                    <p class="text-gold-600 font-bold text-xl mb-4">সকাল</p>
+                    <p class="text-gray-600">কনের বাসভবন, ডোঙ্গল মোড়<br/>গৌরহাটি, হুগলী - ৭১২৬১৩</p>
                     <p class="text-maroon-700 text-sm mt-4 font-semibold flex items-center justify-center gap-1">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         ম্যাপে দেখুন
                     </p>
                 </a>
 
-                <!-- Event 2: Biye (Clickable) -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Dongal+More" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300 shadow-xl border-maroon-700 relative">
+                <!-- Event 2: Biye -->
+                <a href="https://maps.app.goo.gl/AS4xTKTbAUajBYRt6" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300 shadow-xl border-maroon-700 relative">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-maroon-800 text-white px-4 py-1 rounded-full text-sm whitespace-nowrap">Main Event</div>
                     <div class="w-16 h-16 mx-auto bg-maroon-100 rounded-full flex items-center justify-center mb-6 mt-4">
                         <svg class="w-8 h-8 text-gold-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-maroon-800 mb-2">শুভ বিবাহ</h3>
                     <p class="text-sm text-gray-500 uppercase tracking-widest font-english mb-4">Wedding Ceremony</p>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">২২শে জানুয়ারি, ২০২৭</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">২১শে নভেম্বর, ২০২৬</p>
                     <p class="text-gold-600 font-bold text-xl mb-4">সন্ধ্যা ৭:০০ টা</p>
-                    <p class="text-gray-600">রাজবাড়ি ব্যাঙ্কুয়েট, রাজারহাট<br/>কলকাতা, পশ্চিমবঙ্গ</p>
+                    <p class="text-gray-600">আনন্দময়ী অনুষ্ঠান হল, গৌরহাটি<br/>হুগলী - ৭১২৬১৩</p>
                     <p class="text-maroon-700 text-sm mt-4 font-semibold flex items-center justify-center gap-1">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         ম্যাপে দেখুন
                     </p>
                 </a>
 
-                <!-- Event 3: Boubhat (Clickable) -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Park+Street,+Kolkata" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300">
+                <!-- Event 3: Boubhat -->
+                <a href="https://goo.gl/maps/xcM1yzKdLUjwgRJ6A" target="_blank" class="block glass-card p-8 rounded-xl text-center fade-in-up hover:-translate-y-2 transition-transform duration-300">
                     <div class="w-16 h-16 mx-auto bg-maroon-100 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-gold-600" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm4.51.59l3.52-3.53C19.8 5.29 20.3 4.25 20.3 3.12V2h-2v1.12c0 .59-.22 1.15-.62 1.56l-3.52 3.53c-.39.41-.62.97-.62 1.56V22h-2V9.77c0-1.12.5-2.17 1.27-2.95z"/></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-maroon-800 mb-2">বৌভাত ও প্রীতিভোজ</h3>
                     <p class="text-sm text-gray-500 uppercase tracking-widest font-english mb-4">Reception</p>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">২৪শে জানুয়ারি, ২০২৭</p>
-                    <p class="text-gold-600 font-bold text-xl mb-4">সন্ধ্যা ৮:০০ টা</p>
-                    <p class="text-gray-600">গ্র্যান্ড হোটেল, পার্ক স্ট্রিট<br/>কলকাতা, পশ্চিমবঙ্গ</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">২৩শে নভেম্বর, ২০২৬</p>
+                    <p class="text-gold-600 font-bold text-xl mb-4">সন্ধ্যা ৭:০০ টা</p>
+                    <p class="text-gray-600">সাধনালয়, হরিহরপুর<br/>আরামবাগ, হুগলী - ৭১২৬০১</p>
                     <p class="text-maroon-700 text-sm mt-4 font-semibold flex items-center justify-center gap-1">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         ম্যাপে দেখুন
@@ -262,9 +278,8 @@
         </div>
     </section>
 
-   <!-- Photos Section (Replacing Venue Section) -->
+   <!-- Photos Section -->
     <section id="photos" class="py-24 bg-maroon-900 text-white relative">
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjN0MwQTE1Ij48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjNUEwQTE4IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-50"></div>
         
         <div class="max-w-6xl mx-auto px-4 relative z-10">
@@ -276,56 +291,43 @@
 
             <!-- Photo Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Photo 1 -->
+                <!-- Photos elements remain unchanged -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer">
-                    <!-- Replace src with your image path -->
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa7.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
-                <!-- Photo 2 -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer delay-100">
-                    <img src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 2" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa2.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 2" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
-                <!-- Photo 3 -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer delay-200">
-                    <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 3" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa3.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 3" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
-                <!-- Photo 4 -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 4" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa4.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 4" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
-                <!-- Photo 5 -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer delay-100">
-                    <img src="https://images.unsplash.com/photo-1544078754-0a37db455110?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 5" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa5.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 5" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
-                <!-- Photo 6 -->
                 <div class="fade-in-up overflow-hidden rounded-xl border-2 border-gold-400/50 shadow-lg group relative cursor-pointer delay-200">
-                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 6" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <img src="sunipa6.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pre-wedding 6" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-maroon-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <svg class="w-12 h-12 text-gold-400 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -335,82 +337,15 @@
         <div class="max-w-4xl mx-auto px-4">
             <h4 class="text-gold-500 text-2xl font-bold mb-2">সুনিপা ও সায়ন</h4>
             <p class="text-gray-400">আপনাদের আশীর্বাদ ও ভালোবাসা কাম্য।</p>
-            <p class="text-gray-600 text-sm mt-4 font-english">&copy; 2027 Wedding Celebration. All rights reserved.</p>
+            <p class="text-gray-600 text-sm mt-4 font-english">&copy; 2026 Wedding Celebration. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // 1. Navbar Scroll Effect & Mobile Menu
-        const navbar = document.getElementById('navbar');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-maroon-900', 'shadow-lg');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-maroon-900', 'shadow-lg');
-                navbar.classList.add('bg-transparent');
-            }
-        });
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // 2. Countdown Timer Logic
-        const weddingDate = new Date("Jan 22, 2027 19:00:00").getTime();
-
-        const updateTimer = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            if (distance < 0) {
-                clearInterval(updateTimer);
-                document.getElementById("countdown").innerHTML = "<h3 class='text-3xl text-maroon-900 font-bold'>বিবাহ সম্পন্ন হয়েছে (Just Married!)</h3>";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-        }, 1000);
-
-        // 3. Scroll Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); 
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(element => {
-            observer.observe(element);
-        });
-
-        // 4. Advanced Music Autoplay & Toggle Logic
+        // 1. Enter Button & Audio Logic
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const enterBtn = document.getElementById('enter-btn');
         const musicToggle = document.getElementById('music-toggle');
         const audio = document.getElementById('sanai-audio');
         let isPlaying = false;
@@ -437,33 +372,27 @@
             isPlaying = false;
         }
 
-        // Attempt to play on load
-        window.addEventListener('DOMContentLoaded', () => {
-            const playPromise = audio.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Autoplay started successfully
-                    setPlayingState();
-                }).catch(error => {
-                    // Autoplay was blocked. Set up a one-time click listener on the body
-                    setPausedState();
-                    document.body.addEventListener('click', function playOnFirstInteraction() {
-                        if (!isPlaying) {
-                            audio.play().then(() => {
-                                setPlayingState();
-                            }).catch(err => console.log("Playback failed:", err));
-                        }
-                        // Remove the listener after the first interaction
-                        document.body.removeEventListener('click', playOnFirstInteraction);
-                    }, { once: true });
-                });
-            }
+        // Action when user clicks the "Open Invitation" button
+        enterBtn.addEventListener('click', () => {
+            // Play Audio
+            audio.play().then(() => {
+                setPlayingState();
+            }).catch(err => {
+                console.log("Playback failed:", err);
+                setPausedState();
+            });
+
+            // Hide overlay with transition
+            welcomeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+                document.body.classList.remove('no-scroll'); // allow scrolling
+            }, 1000);
         });
 
-        // Manual toggle control
+        // Manual music toggle control (bottom right button)
         musicToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Stop event from bubbling up to the body listener
+            e.stopPropagation(); 
             if (isPlaying) {
                 audio.pause();
                 setPausedState();
@@ -471,6 +400,75 @@
                 audio.play();
                 setPlayingState();
             }
+        });
+
+        // 2. Navbar Scroll Effect & Mobile Menu
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-maroon-900', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-maroon-900', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. Countdown Timer Logic
+        const weddingDate = new Date("Nov 21, 2026 19:00:00").getTime();
+
+        const updateTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(updateTimer);
+                document.getElementById("countdown").innerHTML = "<h3 class='text-3xl text-maroon-900 font-bold'>বিবাহ সম্পন্ন হয়েছে (Just Married!)</h3>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        // 4. Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
